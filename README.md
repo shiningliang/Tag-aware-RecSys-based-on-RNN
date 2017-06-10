@@ -16,8 +16,8 @@ model = Word2Vec(LineSentence(inp), size=100, window=5, min_count=2, workers=mul
 - [ ] 算术平均压缩标签向量丢失大量信息
 - [ ] 模型表达能力不强
 ## 改进计划与实验反馈
-1. ~~若一个标签由m个词组成，计算这m个词之间的cosine相似度，则对于每个词有m-1维的相似度向量，对这个m*(m-1)的相似度矩阵做maxpooling，产生的m维向量即为这m个词的words embedding，且与原标签中的词处于不同的语义空间。~~
-==该方法最后生成m维向量，与原始的embedidng dim不同==
+1. ~~若一个标签由m个词组成，计算这m个词之间的cosine相似度，则对于每个词有m-1维的相似度向量，对这个m*(m-1)的相似度矩阵做maxpooling，产生的m维向量即为这m个词的words embedding，且与原标签中的词处于不同的语义空间。~~  
+该方法最后生成m维向量，与原始的embedidng dim不同
 2. 给标签分配age，按时间衰减代替算术平均
 3. 用CNN处理标签向量，生成feature map输入GRU
 4. 双层GRU，加入L2，改用mAP和NDCG，80-10-10数据分配
